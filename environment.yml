@@ -1,4 +1,4 @@
-name: qDiT
+name: DiTAS
 channels:
   - pytorch
   - nvidia

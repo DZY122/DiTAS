@@ -19,6 +19,17 @@ conda env create -f environment.yml
 conda activate DiTAS
 ```
 
+## Quantizing Diffusion Transformers
+
+We provide a training script for DiT in [`train.py`](train.py). This script can be used to train class-conditional 
+DiT models, but it can be easily modified to support other types of conditioning. To launch DiT-XL/2 (256x256) training with `N` GPUs on 
+one node:
+
+```bash
+torchrun --nnodes=1 --nproc_per_node=N train.py --model DiT-XL/2 --data-path /path/to/imagenet/train
+```
+
+
 ## Evaluation (FID, Inception Score, etc.)
 
 We include a [`sample_merge_TAS.py`](sample_merge_TAS.py) script which samples a large number of images from a DiTAS model in parallel. For the QKV and FC1 layers in DiT blocks, we can merge the smooth

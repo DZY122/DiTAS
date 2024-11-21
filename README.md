@@ -1,7 +1,7 @@
 # DiTAS: Quantizing Diffusion Transformers via Enhanced Activation Smoothing (WACV 2025)
 ### [Paper] https://arxiv.org/abs/2409.07756
 
-### Zhenyuan Dong; Sai Qian Zhang
+### Zhenyuan Dong, Sai Qian Zhang
 
 ### New York University
 ![DiTAS samples](sample.png)

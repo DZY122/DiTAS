@@ -36,7 +36,7 @@ ing factor of activation into the side MLP, and merge the smoothing factor of Pr
 
 This script generates a folder of samples as well as a `.npz` file which can be directly used with [ADM's TensorFlow
 evaluation suite](https://github.com/openai/guided-diffusion/tree/main/evaluations) to compute FID, Inception Score and
-other metrics. For example, to sample 10K images from our pre-trained DiT-XL/2 model over `N` GPUs, run:
+other metrics. For example, to sample 10K images from our quantized DiT-XL/2 model over `N` GPUs, run:
 
 ```bash
 torchrun --nnodes=1 --nproc_per_node=1 sample_merge_TAS.py --image-size 256 --model DiT-XL/2 --num-fid-samples 10000 --act-bit 8 --weight-bit 4 --path /path/DiTAS_Model

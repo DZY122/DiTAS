@@ -18,21 +18,20 @@ to run pre-trained models locally on CPU, you can remove the `cudatoolkit` and `
 conda env create -f environment.yml
 conda activate DiTAS
 ```
+Then, choose and set the bit-width setting in [`config.py`](config.py) both for activation and weight quantization.
 
 ## Quantizing Diffusion Transformers
 
-DiTAS provide a quantization script for DiT in [`QuantDiT.py.py`](QuantDiT.py.py). This script can be used to train class-conditional 
-DiT models, but it can be easily modified to support other types of conditioning. To launch DiT-XL/2 (256x256) training with `N` GPUs on 
-one node:
+DiTAS provides a quantization script for DiT in [`QuantDiT.py`](QuantDiT.py). This script can be used to quantize DiT models through advanced methods of DiTAS. The output is the quantized weight checkpoints and the optimized parameters for activation quantization:
 
 ```bash
-torchrun --nnodes=1 --nproc_per_node=N train.py --model DiT-XL/2 --data-path /path/to/imagenet/train
+python QuantDiT.py --image-size 256 --seed 1 --model DiT-XL/2 --act-bit 8 --weight-bit 4 --num-sampling-steps 50
 ```
 
 
 ## Evaluation (FID, Inception Score, etc.)
 
-DiTAS include a [`sample_merge_TAS.py`](sample_merge_TAS.py) script which samples a large number of images from a DiTAS model in parallel. For the QKV and FC1 layers in DiT blocks, we can merge the smooth
+DiTAS includes a [`sample_merge_TAS.py`](sample_merge_TAS.py) script which samples a large number of images from a DiTAS model in parallel. For the QKV and FC1 layers in DiT blocks, we can merge the smooth
 ing factor of activation into the side MLP, and merge the smoothing factor of Projection layer’s activation into V’s weight. Finally, we operate on-the-fly activation smoothing for FC2 layer. 
 
 This script generates a folder of samples as well as a `.npz` file which can be directly used with [ADM's TensorFlow

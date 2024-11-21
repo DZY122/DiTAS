@@ -27,7 +27,7 @@ Then, choose and set the bit-width setting in [`config.py`](config.py) both for 
 DiTAS provides a quantization script for DiT in [`QuantDiT.py`](QuantDiT.py). This script can be used to quantize DiT models through advanced methods of DiTAS. The output is the quantized weight checkpoints and the optimized parameters for activation quantization:
 
 ```bash
-python QuantDiT.py --image-size 256 --seed 1 --model DiT-XL/2 --act-bit 8 --weight-bit 4 --num-sampling-steps 50
+python QuantDiT.py --image-size 256 --seed 1 --model DiT-XL/2 --act-bit 8 --weight-bit 4 --num-sampling-steps 100
 ```
 
 
@@ -40,7 +40,7 @@ evaluation suite](https://github.com/openai/guided-diffusion/tree/main/evaluatio
 other metrics. For example, to sample 10K images from our quantized DiT-XL/2 model over `N` GPUs, run:
 
 ```bash
-torchrun --nnodes=1 --nproc_per_node=N sample_merge_TAS.py --image-size 256 --model DiT-XL/2 --num-fid-samples 10000 --act-bit 8 --weight-bit 4 --path /path/DiTAS_Model
+torchrun --nnodes=1 --nproc_per_node=N sample_merge_TAS.py --image-size 256 --model DiT-XL/2 --num-fid-samples 10000 --act-bit 8 --weight-bit 4 --path /path/DiTAS_Model --num-sampling-steps 100
 ```
 
 

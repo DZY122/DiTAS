@@ -13,8 +13,7 @@ git clone https://github.com/DZY122/DiTAS.git
 cd DiTAS
 ```
 
-We provide an [`environment.yml`](environment.yml) file that can be used to create a Conda environment. If you only want 
-to run pre-trained models locally on CPU, you can remove the `cudatoolkit` and `pytorch-cuda` requirements from the file.
+We provide an [`environment.yml`](environment.yml) file that can be used to create a Conda environment.
 
 ```bash
 conda env create -f environment.yml

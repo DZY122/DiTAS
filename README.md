@@ -7,8 +7,8 @@
 First, download and set up the repo:
 
 ```bash
-git clone [https://github.com/facebookresearch/DiT.git](https://github.com/DZY122/DiTAS.git)
-cd DiT
+git clone https://github.com/DZY122/DiTAS.git
+cd DiTAS
 ```
 
 We provide an [`environment.yml`](environment.yml) file that can be used to create a Conda environment. If you only want 
@@ -16,7 +16,7 @@ to run pre-trained models locally on CPU, you can remove the `cudatoolkit` and `
 
 ```bash
 conda env create -f environment.yml
-conda activate DiT
+conda activate DiTAS
 ```
 
 ## Evaluation (FID, Inception Score, etc.)

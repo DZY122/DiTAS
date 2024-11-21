@@ -1,8 +1,9 @@
 # DiTAS: Quantizing Diffusion Transformers via Enhanced Activation Smoothing (WACV 2025)
 ### [Paper] https://arxiv.org/abs/2409.07756
-Zhenyuan Dong; Sai Qian Zhang
 
-New York University
+### Zhenyuan Dong; Sai Qian Zhang
+
+### New York University
 ![DiTAS samples](sample.png)
 
 We propose DiTAS, a data-free post-training quantization (PTQ) method for efficient DiT inference. DiTAS relies on the proposed temporal-aggregated smoothing techniques to mitigate the impact of the channel-wise outliers within the input activations, leading to much lower quantization error under extremely low bitwidth. To further enhance the performance of the quantized DiT, we adopt the layer-wise grid search strategy to optimize the smoothing factor. Moreover, we integrate a training-free LoRA module for weight quantization, leveraging alternating optimization to minimize quantization errors without additional fine-tuning. Experimental results demonstrate that our approach enables 4-bit weight, 8-bit activation (W4A8) quantization for DiTs while maintaining comparable performance as the full-precision model.

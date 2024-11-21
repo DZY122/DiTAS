@@ -21,7 +21,7 @@ conda activate DiTAS
 
 ## Quantizing Diffusion Transformers
 
-We provide a training script for DiT in [`QuantDiT.py.py`](QuantDiT.py.py). This script can be used to train class-conditional 
+DiTAS provide a quantization script for DiT in [`QuantDiT.py.py`](QuantDiT.py.py). This script can be used to train class-conditional 
 DiT models, but it can be easily modified to support other types of conditioning. To launch DiT-XL/2 (256x256) training with `N` GPUs on 
 one node:
 
@@ -32,7 +32,7 @@ torchrun --nnodes=1 --nproc_per_node=N train.py --model DiT-XL/2 --data-path /pa
 
 ## Evaluation (FID, Inception Score, etc.)
 
-We include a [`sample_merge_TAS.py`](sample_merge_TAS.py) script which samples a large number of images from a DiTAS model in parallel. For the QKV and FC1 layers in DiT blocks, we can merge the smooth
+DiTAS include a [`sample_merge_TAS.py`](sample_merge_TAS.py) script which samples a large number of images from a DiTAS model in parallel. For the QKV and FC1 layers in DiT blocks, we can merge the smooth
 ing factor of activation into the side MLP, and merge the smoothing factor of Projection layer’s activation into V’s weight. Finally, we operate on-the-fly activation smoothing for FC2 layer. 
 
 This script generates a folder of samples as well as a `.npz` file which can be directly used with [ADM's TensorFlow

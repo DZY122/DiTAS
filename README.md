@@ -31,14 +31,14 @@ python QuantDiT.py --image-size 256 --seed 1 --model DiT-XL/2 --act-bit 8 --weig
 
 ## Evaluation (FID, Inception Score, etc.)
 
-DiTAS includes a [`sample_merge_TAS.py`](sample_merge_TAS.py) script which samples a large number of images from a DiTAS model in parallel. For the QKV and FC1 layers in DiT blocks, we can merge the smoothing factor of activation into the side MLP, and merge the smoothing factor of Projection layer’s activation into V’s weight. Finally, we operate on-the-fly activation smoothing for FC2 layer. 
+DiTAS includes a [`sample_merge_TAS.py`](sample_merge_TAS.py) script which samples a large number of images from a DiTAS model in parallel. For the QKV and FC1 layers in DiT blocks, we merge the smoothing factor of activation into the side MLP. And we merge the smoothing factor of Projection layer’s activation into V’s weight. Finally, we operate on-the-fly activation smoothing for FC2 layer. 
 
 This script generates a folder of samples as well as a `.npz` file which can be directly used with [ADM's TensorFlow
 evaluation suite](https://github.com/openai/guided-diffusion/tree/main/evaluations) to compute FID, Inception Score and
 other metrics. For example, to sample 10K images from our quantized DiT-XL/2 model over `N` GPUs, run:
 
 ```bash
-torchrun --nnodes=1 --nproc_per_node=1 sample_merge_TAS.py --image-size 256 --model DiT-XL/2 --num-fid-samples 10000 --act-bit 8 --weight-bit 4 --path /path/DiTAS_Model
+torchrun --nnodes=1 --nproc_per_node=N sample_merge_TAS.py --image-size 256 --model DiT-XL/2 --num-fid-samples 10000 --act-bit 8 --weight-bit 4 --path /path/DiTAS_Model
 ```
 
 

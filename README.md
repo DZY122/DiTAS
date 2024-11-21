@@ -6,8 +6,9 @@
 ## Evaluation (FID, Inception Score, etc.)
 
 We include a [`sample_merge_TAS.py`](sample_merge_TAS.py) script which samples a large number of images from a DiTAS model in parallel. For the QKV and FC1 layers in DiT blocks, we can merge the smooth
-ing factor of activation into the side MLP, and merge the smoothing factor of Projection layer’s activation into V’s weight. Finally, we operate on-the-fly activation smoothing for FC2 layer. And this script 
-generates a folder of samples as well as a `.npz` file which can be directly used with [ADM's TensorFlow
+ing factor of activation into the side MLP, and merge the smoothing factor of Projection layer’s activation into V’s weight. Finally, we operate on-the-fly activation smoothing for FC2 layer. 
+
+This script generates a folder of samples as well as a `.npz` file which can be directly used with [ADM's TensorFlow
 evaluation suite](https://github.com/openai/guided-diffusion/tree/main/evaluations) to compute FID, Inception Score and
 other metrics. For example, to sample 10K images from our pre-trained DiT-XL/2 model over `N` GPUs, run:
 

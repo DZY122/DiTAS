@@ -21,7 +21,7 @@ conda activate DiTAS
 
 ## Quantizing Diffusion Transformers
 
-We provide a training script for DiT in [`train.py`](train.py). This script can be used to train class-conditional 
+We provide a training script for DiT in [`QuantDiT.py.py`](QuantDiT.py.py). This script can be used to train class-conditional 
 DiT models, but it can be easily modified to support other types of conditioning. To launch DiT-XL/2 (256x256) training with `N` GPUs on 
 one node:
 

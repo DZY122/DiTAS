@@ -2,6 +2,22 @@
 ### [Paper] https://arxiv.org/abs/2409.07756
 ![DiTAS samples](sample.png)
 
+## Setup
+
+First, download and set up the repo:
+
+```bash
+git clone [https://github.com/facebookresearch/DiT.git](https://github.com/DZY122/DiTAS.git)
+cd DiT
+```
+
+We provide an [`environment.yml`](environment.yml) file that can be used to create a Conda environment. If you only want 
+to run pre-trained models locally on CPU, you can remove the `cudatoolkit` and `pytorch-cuda` requirements from the file.
+
+```bash
+conda env create -f environment.yml
+conda activate DiT
+```
 
 ## Evaluation (FID, Inception Score, etc.)
 

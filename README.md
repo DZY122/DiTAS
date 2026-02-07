@@ -51,10 +51,12 @@ torchrun --nnodes=1 --nproc_per_node=N sample_merge_TAS.py --image-size 256 --mo
 ## BibTeX
 
 ```bibtex
-@article{dong2024ditas,
-  title={DiTAS: Quantizing Diffusion Transformers via Enhanced Activation Smoothing},
-  author={Dong, Zhenyuan and Zhang, Sai Qian},
-  journal={arXiv preprint arXiv:2409.07756},
-  year={2024}
+@InProceedings{Dong_2025_WACV,
+    author    = {Dong, Zhenyuan and Zhang, Sai Qian},
+    title     = {DiTAS: Quantizing Diffusion Transformers via Enhanced Activation Smoothing},
+    booktitle = {Proceedings of the Winter Conference on Applications of Computer Vision (WACV)},
+    month     = {February},
+    year      = {2025},
+    pages     = {4606-4615}
 }
 ```
